@@ -1,5 +1,6 @@
-<li>
-    <div><input type="checkbox" id="task" name="completed">
-        <label for="task"></label>
+<li data-bind="attr: {id: id}">
+    <div>
+        <input type="checkbox" id="task" name="completed" data-bind="checked: completed">
+        <label for="task" data-bind="text: name"></label>
         <a href="" class="delete" title="Remove Task">x</a></div>
 </li>

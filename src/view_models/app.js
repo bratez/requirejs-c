@@ -1,21 +1,5 @@
-define(
-    [
-        'ui_strings',
-        'knockout',
-        'view_models/list',
-        'text!views/list.html',
-        'list_manager',
-        'renderer'
-    ],
-    function(
-        uiStrings,
-        ko,
-        ListViewModel,
-        listView,
-        listManager,
-        renderer
-    ) {
-    'use strics';
+define(['i18n!nls/ui_strings', 'knockout', 'view_models/list', 'text!views/list.html', 'list_manager', 'renderer'], function (uiStrings, ko, ListViewModel, listView, listManager, renderer) {
+    'use strict';
 
     function App() {
         this.title = uiStrings.welcome;
@@ -28,7 +12,7 @@ define(
         this.enableLoad = ko.observable(false);
         this.listName = ko.observable('');
 
-        this.isButtonEnabled = ko.computed(function() {
+        this.isButtonEnabled = ko.computed(function () {
             if (this.listName() !== '') {
                 this.enableAdd(true);
             } else {
@@ -36,7 +20,7 @@ define(
             }
         }, this);
 
-        this.addList = function() {
+        this.addList = function () {
             var list = listManager.createList(this.listName()),
                 container = document.querySelector('.todo_app section');
 
@@ -51,10 +35,10 @@ define(
         };
         this.addListHandler = this.addList.bind(this);
 
-        this.removeList = function(container) {
+        this.removeList = function (container) {
             ko.cleanNode(container);
             container.innerHTML = '';
-        };
+        }
     }
 
     return App;

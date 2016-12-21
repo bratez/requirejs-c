@@ -6,10 +6,10 @@ define(function() {
     }
 
     function load(listId) {
-        return JSON.parse(localStorage.getItem(listId))
+        return JSON.parse(localStorage.getItem(listId));
     }
 
-    function getLists(listId) {
+    function getLists() {
         var x,
             lists = [],
             length = localStorage.length;
